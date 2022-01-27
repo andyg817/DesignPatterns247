@@ -1,26 +1,38 @@
+/**
+ * Replaces certain characters in string with corresponding symbol
+ * @author Andrew Garcia
+ */
 public class Symbols extends PasswordDecorator{
+/**
+ * Initializes passwordBeginning and calls getPassword
+ * @param passwordBeginning beginning of password
+ */
     public Symbols(Password passwordBeginning) {
         super(passwordBeginning);
-        this.passwordBeginning = passwordBeginning;
+        password = passwordBeginning.getPassword();
     }
+/**
+ * Modifies password string by changing characters with symbols
+ * @return String password
+ */
     public String getPassword() {
         for(int i = 0; i < password.length(); i++) {
             if(password.charAt(i) == 'a') {
-                password.replace('a','@');
+                password = password.replace('a','@');
             } else if(password.charAt(i) == 'b') {
-                password.replace('b','8');
+                password = password.replace('b','8');
             } else if(password.charAt(i) == 'e') {
-                password.replace('e','3');
+                password = password.replace('e','3');
             } else if(password.charAt(i) == 'g') {
-                password.replace('g','9');
+                password = password.replace('g','9');
             } else if(password.charAt(i) == 'i') {
-                password.replace('i','!');
+                password = password.replace('i','!');
             } else if(password.charAt(i) == 'o') {
-                password.replace('o','0');
+                password = password.replace('o','0');
             } else if(password.charAt(i) == 's') {
-                password.replace('s','$');
+                password = password.replace('s','$');
             } else if(password.charAt(i) == 't') {
-                password.replace('t','7');
+                password = password.replace('t','7');
             }
         }
         return this.password;

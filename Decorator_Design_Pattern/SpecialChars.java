@@ -1,9 +1,22 @@
 import java.util.*;
+/**
+ * Adds speecial characters in password
+ * @author Andrew Garcia
+ */
 public class SpecialChars extends PasswordDecorator{
+/**
+ * Initializes passwordBeginning and calls getPassword
+ * @param passwordBeginning beginning of password
+ */
     public SpecialChars(Password passwordBeginning) {
         super(passwordBeginning);
         this.passwordBeginning = passwordBeginning;
+        password = passwordBeginning.getPassword();
     }
+/**
+ * Adds special characters 30% of the time in password
+ * @return string password modified
+ */
     public String getPassword() {
         for(int i = 0; i < password.length(); i++) {
             int min = 1, max = 3;
@@ -11,11 +24,10 @@ public class SpecialChars extends PasswordDecorator{
             if(rand == 2) {
                 Random random = new Random();
                 String Specialchars = "*!%+.{}";
-                int ranInt = random.nextInt(Specialchars.length());
-                char ranChar = Specialchars.charAt(ranInt);
-                password = password.substring(0, password.charAt(i)) + ranChar + password.substring(password.charAt(i));
-//Reference to https://www.delftstack.com/howto/java/java-random-character/
-//Reference to https://www.baeldung.com/java-add-character-to-string
+                char ranChar = Specialchars.charAt(random.nextInt(Specialchars.length()));
+                password = password.substring(0, i) + ranChar + password.substring(i);
+//Reference to https://programming.guide/java/generate-random-character.html
+//Reference to https://www.delftstack.com/howto/java/add-char-to-string-java/
             }
         }
         return this.password;
