@@ -5,10 +5,16 @@ import java.util.*;
  */
 public class FrenchState implements State{
     private MusicBox box;
-
+/**
+ * Constructor of the french music box
+ * @param box 
+ */
     public FrenchState(MusicBox box) {
         this.box = box;
     }
+/**
+ * Fills ArrayList with french twinkle little star
+ */
     public void pressStarButton() {
         String name = "Brille, brille, petite étoile";
         ArrayList<String> lyrics = new ArrayList<String>();
@@ -20,6 +26,9 @@ public class FrenchState implements State{
         lyrics.add("Je me demande vraiment ce que tu es!");
         box.playSong(name, lyrics);
     }
+/**
+ * Fills ArrayList with french if your happy
+ */
     public void pressHappyButton() {
         String name = "Si tu as d' la joie au cœur";
         ArrayList<String> lyrics = new ArrayList<String>();
@@ -31,12 +40,21 @@ public class FrenchState implements State{
         lyrics.add("Frappe des mains.");
         box.playSong(name, lyrics);
     }
+/**
+ * Sets box to english state
+ */
     public void pressEnglishButton() {
         box.setState(box.getEnglishState());
     }
+/**
+ * Displays that french state is already set
+ */
     public void pressFrenchButton() {
         System.out.println("Vous êtes déjà en mode français");
     }
+/**
+ * Sets box to spanish state
+ */
     public void pressSpanishButton() {
         box.setState(box.getSpanishState());
     }
